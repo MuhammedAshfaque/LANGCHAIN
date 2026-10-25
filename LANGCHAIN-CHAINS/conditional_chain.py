@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field
 from typing import Literal
 
 load_dotenv()
-
+ 
 model = ChatOpenAI()
 
 parser = StrOutputParser()
