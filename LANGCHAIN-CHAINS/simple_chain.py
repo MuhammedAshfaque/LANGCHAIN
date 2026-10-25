@@ -12,7 +12,7 @@ prompt = PromptTemplate(
 
 model = ChatOpenAI()
 
-parser = StrOutputParser()
+parser = StrOutputParser()  # so that we can get our output in string format from LLM response. So that we don't need access of (.content) from response
 
 chain = prompt | model | parser
 
@@ -20,4 +20,4 @@ result = chain.invoke({'topic':'cricket'})
 
 print(result)
 
-chain.get_graph().print_ascii()
+chain.get_graph().print_ascii()  # by writing this we can analyze or see our chain, how each process executing one by one.
