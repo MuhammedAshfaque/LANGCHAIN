@@ -1,5 +1,7 @@
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-# chat template
+
+# In order to format our input with complete chat history. We use MessagePlaceHolder package to inject chat_history in between.
+
 chat_template = ChatPromptTemplate([
     ('system','You are a helpful customer support agent'),
     MessagesPlaceholder(variable_name='chat_history'),
@@ -7,7 +9,7 @@ chat_template = ChatPromptTemplate([
 ])
 
 chat_history = []
-# load chat history
+# Retrieve the chat history
 with open('chat_history.txt') as f:
     chat_history.extend(f.readlines())
 

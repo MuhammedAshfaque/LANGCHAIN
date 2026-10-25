@@ -5,6 +5,8 @@ from langchain_core.output_parsers import JsonOutputParser
 
 load_dotenv()
 
+# It forces LLM to send output in JSON format, that's it. Nothing else.
+
 # Define the model
 llm = HuggingFaceEndpoint(
     repo_id="google/gemma-2-2b-it",

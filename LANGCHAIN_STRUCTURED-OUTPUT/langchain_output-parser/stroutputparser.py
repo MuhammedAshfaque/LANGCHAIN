@@ -4,6 +4,7 @@ from langchain_core.prompts import PromptTemplate
 
 load_dotenv()
 
+# ------ Without stringOutputParser ------ #
 llm = HuggingFaceEndpoint(
     repo_id="google/gemma-2-2b-it",
     task="text-generation"
@@ -25,11 +26,12 @@ template2 = PromptTemplate(
 
 prompt1 = template1.invoke({'topic':'black hole'})
 
-result = model.invoke(prompt1)
+result1 = model.invoke(prompt1)
 
-prompt2 = template2.invoke({'text':result.content})
+# we manualy have to set result1.content in the second prompt prompt2
+prompt2 = template2.invoke({'text':result1.content})
 
-result1 = model.invoke(prompt2)
+result2 = model.invoke(prompt2)
 
-print(result1.content)
+print(result2.content)
 
